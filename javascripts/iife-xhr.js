@@ -1,6 +1,6 @@
-// Create two JSON files. One should contain an array of carnivores, and the 
-// other should contain an array of herbivores.
 
+
+// 			INSTRUCTIONS:
 // Create an IIFE with the name of Predator.
 
 // Predator should have two private arrays to store carnivores and herbivores.
@@ -25,3 +25,17 @@ function showHerbivores () {
 }
 
 Predator.loadCarnivores(showCarnivores);
+
+
+// Configure XHRs
+var carnivoresXHR = new XMLHttpRequest();
+carnivoresXHR.addEventListener("load", showCarnivores);
+carnivoresXHR.addEventListener("error", failCarnivores);
+carnivoresXHR.open("GET", "json/carnivores.json");
+carnivoresXHR.send();
+
+var herbivoresXHR = new XMLHttpRequest();
+herbivoresXHR.addEventListener("load", showHerbivores);
+herbivoresXHR.addEventListener("error", failHerbivores);
+herbivoresXHR.open("GET", "json/herbivores.json");
+herbivoresXHR.send();
