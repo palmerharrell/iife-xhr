@@ -17,25 +17,15 @@
 // after each file is loaded.
 
 function showCarnivores (carnivores) {
-
+	console.log("Carnivores: ", carnivores);
 }
 
-function showHerbivores () {
-
+function showHerbivores (herbivores) {
+	console.log("Herbivores: ", herbivores);
 }
 
 Predator.loadCarnivores(showCarnivores);
+Predator.loadHerbivores(showHerbivores);
 
 
-// Configure XHRs
-var carnivoresXHR = new XMLHttpRequest();
-carnivoresXHR.addEventListener("load", showCarnivores);
-carnivoresXHR.addEventListener("error", failCarnivores);
-carnivoresXHR.open("GET", "json/carnivores.json");
-carnivoresXHR.send();
 
-var herbivoresXHR = new XMLHttpRequest();
-herbivoresXHR.addEventListener("load", showHerbivores);
-herbivoresXHR.addEventListener("error", failHerbivores);
-herbivoresXHR.open("GET", "json/herbivores.json");
-herbivoresXHR.send();
