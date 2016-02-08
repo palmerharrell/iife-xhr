@@ -1,31 +1,24 @@
-
-
-// 			INSTRUCTIONS:
-// Create an IIFE with the name of Predator.
-
-// Predator should have two private arrays to store carnivores and herbivores.
-
-// Predator should expose two public functions to load each JSON files and stores 
-// the array of animals in the appropriate private array. Each of those functions 
-// should accept one argument that will store the callback function to be executed.
-
-// In the iife-xhr.js file, define two functions that will be executed after each 
-// type of animal is loaded to then display those animals in your DOM. Example 
-// given below.
-
-// In the Predator IIFE, invoke the callback function, passed in from iife-xhr.js, 
-// after each file is loaded.
+var animalsEl = document.getElementById("Animals");
 
 function showCarnivores (carnivores) {
-	console.log("Carnivores: ", carnivores);
+	var carnivoresArray = carnivores.carnivores;
+	var carnivoresHTML = `<h1>Carnivores</h1>`;
+
+	for (var i = 0; i < carnivoresArray.length; i++) {
+		carnivoresHTML += `<p>${carnivoresArray[i]}</p>`;
+	};
+	animalsEl.innerHTML += carnivoresHTML;
 }
 
 function showHerbivores (herbivores) {
-	console.log("Herbivores: ", herbivores);
+	var herbivoresArray = herbivores.herbivores;
+	var herbivoresHTML = `<h1>Herbivores</h1>`;
+
+	for (var i = 0; i < herbivoresArray.length; i++) {
+		herbivoresHTML += `<p>${herbivoresArray[i]}</p>`;
+	};
+	animalsEl.innerHTML += herbivoresHTML;
 }
 
 Predator.loadCarnivores(showCarnivores);
 Predator.loadHerbivores(showHerbivores);
-
-
-
